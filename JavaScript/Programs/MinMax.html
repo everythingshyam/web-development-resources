@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimum and Maximum of Array</title>
+</head>
+
+<body>
+    <!-- Gets an array as input and displays a random element out of it -->
+    <div class="container">
+        <h1>Minimum Maximum from an Array</h1>
+        <p>Enter an array(seperated by commas):</p>
+        <input type="text" id="array" placeholder="Enter an array seperated by commas" style="width: 40vw;">
+        <button onclick="getRandom()">Show Min, Max</button>
+        <h4 id="result">Result will be displayed here</h4>
+    </div>
+</body>
+<script>
+    const getRandom = () => {
+        let input = document.getElementById("array").value;
+        let arr = input.split(",").map(Number);
+        console.log(arr);
+        // if (!arr || arr.length == 0) {
+        //     document.getElementById("result").innerHTML = "Please enter a valid array";
+        //     return;
+        // }
+        const min = Math.min(...arr);
+        const max = Math.max(...arr);
+        console.log(`Minimum: ${min}\nMaximum: ${max}`);
+        document.getElementById("result").innerHTML = `Minimum: ${min}<br>Maximum: ${max}`;
+    }
+    //IIFE to calculate area of rectangle
+    // ((a, b) => { console.log(`The area of rectangle with length ${a} and breadth ${b} is ${a * b}`); })(4, 5);
+</script>
+
+</html>

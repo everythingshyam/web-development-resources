@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random No From Array</title>
+</head>
+
+<body>
+    <!-- Gets an array as input and displays a random element out of it -->
+    <div class="container">
+        <h1>Random Selector for array</h1>
+        <p>Enter an array(seperated by commas):</p>
+        <input type="text" id="array" placeholder="Enter an array seperated by commas" style="width: 40vw;">
+        <button onclick="getRandom()">Select Random</button>
+        <h4 id="result">Result will be displayed here</h4>
+    </div>
+</body>
+<script>
+    const getRandom = () => {
+        let input = document.getElementById("array").value;
+        let arr = input.split(",").map(Number);
+        console.log(arr);
+        // if (!arr || arr.length == 0) {
+        //     document.getElementById("result").innerHTML = "Please enter a valid array";
+        //     return;
+        // }
+        const size = arr.length - 1;
+        // We could also use Math.toFixed() here
+        const index = Math.floor((Math.random() * size));
+        console.log(`Index chosen: ${index}\nNumber chosen: ${arr[index]}`);
+        document.getElementById("result").innerHTML = `Index chosen: ${index}<br>Number chosen: ${arr[index]}`;
+    }
+</script>
+
+</html>
