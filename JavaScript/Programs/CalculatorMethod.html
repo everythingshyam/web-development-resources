@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Method</title>
+</head>
+
+<body>
+    <!-- Gets an array as input and displays a random element out of it -->
+    <div class="container">
+        <h1>Calculator Method Using Switch Case</h1>
+        <p>Enter first number</p>
+        <input type="text" id="no-1" placeholder="n1">
+        <p>Enter second number</p>
+        <input type="text" id="no-2" placeholder="n2">
+        <div>
+            <input type="radio" name="operation" id="add">
+            <label for="operation">Add</label>
+            <input type="radio" name="operation" id="subtract">
+            <label for="operation">Subtract</label>
+            <input type="radio" name="operation" id="multiply">
+            <label for="operation">Multiply</label>
+            <input type="radio" name="operation" id="divide">
+            <label for="operation">Divide</label>
+        </div>
+        <button onclick="calculate()">Calculate</button>
+        <h4 id="result">Result will be displayed here</h4>
+    </div>
+</body>
+<script>
+    const calculate = () => {
+        let no1 = document.getElementById("no-1").value;
+        let no2 = document.getElementById("no-2").value;
+        let result = 0;
+        switch (true) {
+            case document.getElementById("add").checked:
+                result = parseInt(no1) + parseInt(no2);
+                break;
+            case document.getElementById("subtract").checked:
+                result = parseInt(no1) - parseInt(no2);
+                break;
+            case document.getElementById("multiply").checked:
+                result = parseInt(no1) * parseInt(no2);
+                break;
+            case document.getElementById("divide").checked:
+                result = parseInt(no1) / parseInt(no2);
+                break;
+            default:
+                result = "Please select an operation!";
+        }
+        document.getElementById("result").innerHTML = `${result}`;
+    }
+</script>
+
+</html>
