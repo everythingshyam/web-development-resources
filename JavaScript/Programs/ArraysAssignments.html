@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Assignments</title>
+</head>
+
+<body>
+    <!-- Gets an array as input and displays a random element out of it -->
+    <div class="container">
+        <a href="https://everythingshyam.github.io/web-development-resources/index.html" target="_blank">GO BACK</a>
+        <h1>JavaScript Assignments</h1>
+        <a href="https://github.com/everythingshyam/web-development-resources/blob/master/JavaScript/Programs/ArraysAssignments.html"
+            target="_blank">View on GitHub</a>
+        <p>Open Console (Ctrl Shift I) to see results</p>
+        <ol>
+            <li>Filter people from an array of objects with age less than or equal to 25, and make them new objects with
+                full name and email only</li>
+            <li>Add all positive nos in an array</li>
+            <li>Capitalize first letter of each word in an array having small-lettered words.</li>
+        </ol>
+    </div>
+    <footer>
+        <p>Right Click, and go to 'View Page Source' to view code, or simply press Ctrl U</p>
+    </footer>
+</body>
+<script>
+    const arr = [
+        { fName: "John", lName: "Doe", email: "johnDoe@gmail.com", phone: "1234567890", age: 35 },
+        { fName: "Jane", lName: "Doe", email: "janeDoe@gmail.com", phone: "1234567890", age: 25 },
+        { fName: "Shyam", lName: "Tiwari", email: "everythingshyam@gmail.com", phone: "8765432091", age: 25 },
+        { fName: "Milo", lName: "Kens", email: "miLokens@gmail.com", phone: "1234567890", age: 20 },
+        { fName: "Hari", lName: "Puttar", email: "hugwards@gmail.com", phone: "9876543210", age: 56 },
+    ];
+
+    const shortList = arr.filter((p) => p.age <= 25).map((p) => ({ name: p.fName + " " + p.lName, email: p.email }));
+    console.log('Assignment 1')
+    console.log(arr);
+    console.log(shortList);
+
+    const numsArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    const sumOfEvenNos = numsArray.filter(x => x % 2 == 0).reduce((acc, curr) => acc + curr, 0);
+    console.log('Assignment 2');
+    console.log(numsArray);
+    console.log(sumOfEvenNos);
+
+    const wordsArray = ['hello', 'world', 'this', 'is', 'javascript'];
+    const capitalizedWords = wordsArray.map(word => word[0].toUpperCase() + word.slice(1));
+    console.log('Assignment 3');
+    console.log(wordsArray);
+    console.log(capitalizedWords);
+</script>
+
+</html>
