@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+</head>
+
+<body>
+    <!-- Works as a simple Todo List -->
+    <div class="container">
+        <a href="https://everythingshyam.github.io/web-development-resources/index.html" target="_blank">GO BACK</a>
+        <h1>Notes App</h1>
+        <a href="https://github.com/everythingshyam/web-development-resources/blob/master/JavaScript/Programs/TodoList.html"
+            target="_blank">View on GitHub</a>
+        <div class="app-container">
+            <div class="text-box-container">
+                <input type="text" name="text-box" id="text-box">
+                <button onclick="add()">Add</button>
+            </div>
+            <div class="list-container">
+                <ul class="list">
+                    <li class="todo-item">
+                        <span class="todo-text">Item 1</span>
+                        <button class="todo-del-btn">X</button>
+                    </li>
+                    <li class="todo-item">
+                        <span class="todo-text">Item 2</span>
+                        <button class="todo-del-btn">X</button>
+                    </li>
+                    <li class="todo-item">
+                        <span class="todo-text">Item 3</span>
+                        <button class="todo-del-btn">X</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="clear-all-container">
+                <button class="clear-all-btn">Clear List</button>
+            </div>
+        </div>
+        <footer>
+            <p>Right Click, and go to 'View Page Source' to view code, or simply press Ctrl U</p>
+        </footer>
+</body>
+<script>
+    Array.from(document.querySelectorAll('.todo-del-btn')).forEach(item => item.addEventListener('click', () => {
+        item.parentElement.remove();
+    }));
+
+    const pageList = document.querySelector('.list');
+    function add() {
+        const text = document.querySelector('#text-box').value;
+        console.log(text)
+        if (text != '') {
+            let item = document.createElement('li');
+            item.className = 'todo-item';
+            item.innerHTML = `<span class="todo-text">${text}</span> <button class="todo-del-btn">X</button>`;
+            pageList.appendChild(item);
+            Array.from(document.querySelectorAll('.todo-del-btn')).forEach(item => item.addEventListener('click', () => {
+                item.parentElement.remove();
+            }));
+            document.querySelector('#text-box').value = '';
+        }
+    }
+
+    document.querySelector('.clear-all-btn').addEventListener('click', () => {
+        pageList.innerHTML = '';
+    });
+</script>
+
+</html>
