@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>insertAfter Method</title>
+</head>
+
+<body>
+    <!-- Works as a simple Todo List -->
+    <div class="container">
+        <a href="https://everythingshyam.github.io/web-development-resources/index.html" target="_blank">GO BACK</a>
+        <h1>insertAfter Method</h1>
+        <a href="https://github.com/everythingshyam/web-development-resources/blob/master/JavaScript/Programs/InsertAfter.html"
+            target="_blank">View on GitHub</a>
+        <hr>
+        <div class="app-container" style="background-color: #ddd;">
+            <div class="text-box-container" style="display: flex; flex-direction: column;">
+                <label for="text-box">Item to Add:</label>
+                <input type="text" name="text-box" id="text-box">
+                <br>
+                <label for="num-box">Add After:</label>
+                <input type="number" name="num-box" id="num-box">
+                <br>
+                <button class="add-btn">Add After</button>
+            </div>
+            <div class="list-container">
+                <ol>
+                    <li>
+                        Sample 1
+                    </li>
+                    <li>
+                        Sample 2
+                    </li>
+                    <li>
+                        Sample 3
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <hr>
+        <footer>
+            <p>Right Click, and go to 'View Page Source' to view code, or simply press Ctrl U</p>
+        </footer>
+</body>
+<script>
+    const pageList = document.querySelector('ol');
+    const textBox = document.querySelector('#text-box');
+    const numBox = document.querySelector('#num-box');
+    const addItemBtn = document.querySelector('.add-btn');
+
+    function addItem(text, afterThis) {
+        if (text && afterThis) {
+            const item = document.createElement('li');
+            item.className = 'todo-item';
+            item.innerText = `${text}`;
+
+            afterThis.insertAdjacentElement('afterend', item);
+            //
+        }
+        else {
+            console.log('Could not add item. Text is empty.')
+        }
+    }
+
+    addItemBtn.addEventListener('click', () => {
+        if (textBox.value && numBox.value) {
+            const afterThis = document.querySelector(`li:nth-child(${parseInt(numBox.value.toString())})`);
+
+            addItem(textBox.value, afterThis);
+        }
+        else {
+            console.log('Could not add Item due to invalid/incomplete data.');
+        }
+    });
+
+    //on-load lines
+</script>
+
+</html>

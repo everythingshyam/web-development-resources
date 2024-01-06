@@ -17,22 +17,15 @@
         <div class="app-container">
             <div class="text-box-container">
                 <input type="text" name="text-box" id="text-box">
-                <button onclick="add()">Add</button>
+                <button class="add-item-btn">Add</button>
             </div>
             <div class="list-container">
                 <ul class="list">
-                    <li class="todo-item">
+                    <!-- Sample List Item Below -->
+                    <!-- <li class="todo-item">
                         <span class="todo-text">Item 1</span>
                         <button class="todo-del-btn">X</button>
-                    </li>
-                    <li class="todo-item">
-                        <span class="todo-text">Item 2</span>
-                        <button class="todo-del-btn">X</button>
-                    </li>
-                    <li class="todo-item">
-                        <span class="todo-text">Item 3</span>
-                        <button class="todo-del-btn">X</button>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
             <div class="clear-all-container">
@@ -44,29 +37,58 @@
         </footer>
 </body>
 <script>
-    Array.from(document.querySelectorAll('.todo-del-btn')).forEach(item => item.addEventListener('click', () => {
-        item.parentElement.remove();
-    }));
+    // Array.from(document.querySelectorAll('.todo-del-btn')).forEach(item => item.addEventListener('click', () => {
+    //     item.parentElement.remove();
+    // }));
 
     const pageList = document.querySelector('.list');
-    function add() {
-        const text = document.querySelector('#text-box').value;
-        console.log(text)
+    const textBox = document.querySelector('#text-box');
+    const addItemBtn = document.querySelector('.add-item-btn');
+    const clearAllBtn = document.querySelector('.clear-all-btn');
+
+    function addItem(text) {
         if (text != '') {
-            let item = document.createElement('li');
+            const item = document.createElement('li');
             item.className = 'todo-item';
-            item.innerHTML = `<span class="todo-text">${text}</span> <button class="todo-del-btn">X</button>`;
+
+            const span = document.createElement('span');
+            span.className = 'todo-text';
+            span.innerText = `${text}`;
+
+            const space = document.createTextNode(' ');
+
+            const removeBtn = document.createElement('button');
+            removeBtn.className = 'todo-del-btn';
+            removeBtn.innerText = 'X';
+            removeBtn.addEventListener('click', () => { removeBtn.parentElement.remove() });
+
+            item.appendChild(span);
+            item.appendChild(space);
+            item.appendChild(removeBtn);
+
             pageList.appendChild(item);
-            Array.from(document.querySelectorAll('.todo-del-btn')).forEach(item => item.addEventListener('click', () => {
-                item.parentElement.remove();
-            }));
-            document.querySelector('#text-box').value = '';
+        }
+        else {
+            console.log('Could not add notes. Text is empty.')
         }
     }
 
-    document.querySelector('.clear-all-btn').addEventListener('click', () => {
+    function clearList() {
         pageList.innerHTML = '';
+    }
+
+    addItemBtn.addEventListener('click', () => {
+        addItem(textBox.value);
+        textBox.value = '';
     });
+
+    clearAllBtn.addEventListener('click', clearList);
+
+    //on-load lines
+    addItem('Name');
+    addItem('Aayein');
+    addItem('Baingan');
+    addItem('');
 </script>
 
 </html>
