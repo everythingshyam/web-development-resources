@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            padding: 0;
+            margin: 0;
+            border: 1px solid black;
+        }
+    </style>
+    <title>Party Game Using Event Listeners</title>
+</head>
+
+<body>
+    <!-- Gets an array as input and displays a random element out of it -->
+    <div class="container">
+        <a href="https://everythingshyam.github.io/web-development-resources/index.html" target="_blank">GO BACK</a>
+        <h1>Party Game Using Event Listeners</h1>
+        <a href="https://github.com/everythingshyam/web-development-resources/blob/master/JavaScript/Programs/PartyGameUsingEventListeners.html"
+            target="_blank">View on GitHub</a>
+        <div class="controls">
+            <h3>Move the mouse over the page to party!!!</h3>
+            <p>Click once on the page if it doesn't work.</p>
+        </div>
+    </div>
+    <footer>
+        <p>Right Click, and go to 'View Page Source' to view code, or simply press Ctrl U</p>
+    </footer>
+</body>
+<script>
+    const body = document.querySelector('body');
+    const colors = ['red', 'green', 'blue', 'yellow', 'orange', 'purple', 'pink', 'black', 'white'];
+    const textColors = ['yellow', 'white', 'red', 'gray', 'green', 'yellow', 'green', 'white', 'black'];
+    let audio = new Audio('./media/audio/Party.mp3');
+
+    audio.addEventListener('ended', function () {
+        this.currentTime = 0;
+    });
+
+    //stores the current mouse position
+    let x = 0, y = 0;
+    let touchX = 0, touchY = 0;
+    //stores the previous mouse position
+    let x1 = 0, y1 = 0;
+    let touchX1 = 0, touchY1 = 0;
+
+    function getRandomColor() {
+        var index = Math.floor(Math.random() * colors.length);
+        body.style.backgroundColor = colors[index];
+        body.style.color = textColors[index];
+
+        if (audio.paused) {
+            audio.play();
+        }
+    }
+
+    function changeWhenMoving() {
+        if (x1 != x || y1 != y || touchX1 != touchX || touchY1 != touchY) {
+            getRandomColor();
+            x1 = x;
+            y1 = y;
+            touchX1 = touchX;
+            touchY1 = touchY;
+        }
+        else if (audio.played) {
+            audio.pause();
+        }
+    }
+
+    body.addEventListener('mousemove', (event) => {
+        x = event.clientX;
+        y = event.clientY;
+    });
+
+    body.addEventListener('touchmove', (event) => {
+        // Get the first touch in the list of touches
+        const touch = event.touches[0];
+
+        if (touch) {
+            // Update touch position
+            touchX = touch.clientX;
+            touchY = touch.clientY;
+        }
+    });
+
+
+    timer = setInterval(() => changeWhenMoving(), 100);
+</script>
+
+</html>
