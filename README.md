@@ -7,6 +7,7 @@ All the resources I utilized learning web development, including the notes and r
 -   **[View on Website](https://everythingshyam.github.io/web-development-resources/index.html)**
 
 -   [JavaScript](https://github.com/everythingshyam/web-development-resources/tree/master/JavaScript)
+    -   [PHP And JavaScript Notes - 1](https://github.com/everythingshyam/web-development-resources/tree/master/JavaScript/PhpAndJavascriptNotes1.pdf)
     -   [Programs](https://github.com/everythingshyam/web-development-resources/tree/master/JavaScript/Programs)
         -   Calculator using Switch Case: [Code](https://github.com/everythingshyam/web-development-resources/blob/master/JavaScript/Programs/CalculatorMethod.html) | [Implementation](https://everythingshyam.github.io/web-development-resources/JavaScript/Programs/CalculatorMethod.html)
         -   Minimum and Maximum out of Array: [Code](https://github.com/everythingshyam/web-development-resources/blob/master/JavaScript/Programs/MinMax.html) | [Implementation](https://everythingshyam.github.io/web-development-resources/JavaScript/Programs/MinMax.html)

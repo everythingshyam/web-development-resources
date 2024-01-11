@@ -16,7 +16,7 @@
 
 -   _Add Git & GitHub Notes_
 
--   _Add JavaScript Notes once completed_
+-   ~~JavaScript Notes once completed~~
 
 -   _SimpleDrawingApp_
 
@@ -24,6 +24,6 @@
 
 -   _Make good layout for KeyPressInfo_
 
--   **Finish javascript tutorial**
+-   ~~Finish javascript tutorial~~
 
 ---
