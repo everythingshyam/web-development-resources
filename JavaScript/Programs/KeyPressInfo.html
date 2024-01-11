@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* border: 1px solid red; */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+
+        /* --------------------- */
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+            display: grid;
+            grid-template-columns: auto;
+            grid-template-rows: 1fr 5fr 1fr;
+            width: 90vw;
+            height: 90vh;
+            box-shadow: 1px 1px 10px gray;
+        }
+
+        .container>* {
+            border: 1px solid gray;
+            margin: 5px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container>header {
+            padding: 5px 20px;
+            justify-content: space-between;
+        }
+
+        /* --------------------- */
+
+        .mid-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .key-param-container {
+            font-size: x-large;
+            /* padding: 10px; */
+            box-shadow: 1px 1px 2px gray;
+            /* border: 1px dotted black; */
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            width: 30vw;
+            border-radius: 10px;
+        }
+
+        .key-param-container>* {
+            padding: 10px 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .key-param-label {
+            border-radius: 10px 10px 0px 0px;
+            background-color: rgb(73, 73, 73);
+            color: whitesmoke;
+        }
+
+        .key-param-value {
+            border-radius: 0px 0px 10px 10px;
+            background-color: darkgray;
+        }
+
+        /* --------------------- */
+
+        .container>footer {
+            font-size: small;
+            display: grid;
+            padding: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+
+        /* --------------------- */
+
+        .link-button {
+            text-decoration: none;
+            color: black;
+            padding: 4px 8px;
+            border-radius: 5px;
+            box-shadow: 1px 1px 5px gray;
+        }
+
+        .link-button:hover {
+            background-color: black;
+            color: white;
+        }
+
+        @media screen and (min-width: 700px) {
+            .mid-body {
+                flex-direction: row;
+            }
+
+            .key-param-container {
+                width: 20vw;
+            }
+
+            .footer-links {
+                flex-direction: row;
+            }
+        }
+    </style>
+    <title>Key Press Info</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <a href="https://everythingshyam.github.io/web-development-resources/index.html" target="_blank"
+                class="link-button" title="Home Page">1</a>
+            <!-- <i class="fa-solid fa-house"></i> -->
+            <h1>Key Press Info</h1>
+            <a href="https://github.com/everythingshyam/web-development-resources/blob/master/JavaScript/Programs/KeyPressInfo.html"
+                target="_blank" class="link-button" title="View on GitHub">2</a>
+        </header>
+        <div class="mid-body">
+            <div class="instruction">Press any key to get it's info.</div>
+        </div>
+        <footer>
+            <div class="note-point">Right Click, and go to 'View Page Source' to view code, or simply press Ctrl U</div>
+            <div class="footer-links">
+                <a href="https://everythingshyam.github.io/static-personal-website/" title="Developer Portfolio"
+                    class="link-button" target="_blank">Know Developer</a>
+                <a href="https://www.github.com/everythingshyam" title="GitHub Profile" class="link-button"
+                    target="_blank">GitHub Profile</a>
+                <a href="https://www.github.com/everythingshyam/web-development-resources/" title="GitHub Repo"
+                    class="link-button" target="_blank">GitHub Repo</a>
+            </div>
+        </footer>
+    </div>
+</body>
+<script>
+    let keyValue, keyCodeValue, splKeyValue, codeValue;
+    const midBody = document.querySelector('.mid-body');
+
+    window.addEventListener('keydown', (event) => {
+        if (event.key) {
+            //Getting all parameters in variables
+            keyValue = (event.key == ' ') ? 'Space' : event.key;
+            keyCodeValue = event.keyCode ? event.keyCode : 'NA';
+            codeValue = event.code;
+
+            // let alreadyFound = false;
+            // if (event.ctrlKey) {
+            //     splKeyValue = 'Ctrl';
+            //     alreadyFound = true;
+            // }
+            // if (event.shiftKey) {
+            //     if (alreadyFound)
+            //         splKeyValue += '+';
+            //     splKeyValue = 'Shift';
+            //     alreadyFound = true;
+            // }
+            // if (event.altKey) {
+            //     if (alreadyFound)
+            //         splKeyValue += '+';
+            //     splKeyValue = 'Alt';
+            // }
+            // else
+            //     splKeyValue = 'NA';
+
+            const htmlContent = `<div class="key-param-container">
+                <div class="key-param-label key-label">Key</div>
+                <div class="key-param-value key-value">${keyValue}</div>
+            </div>
+            <div class="key-param-container">
+                <div class="key-param-label spl-key-label">Code</div>
+                <div class="key-param-value spl-key-value">${codeValue}</div>
+            </div>
+            <div class="key-param-container">
+                <div class="key-param-label key-code-label">Key Code</div>
+                <div class="key-param-value key-code-value">${keyCodeValue}</div>
+            </div>`;
+
+            midBody.innerHTML = htmlContent;
+        }
+        else {
+            midBody.innerHtml = '<div class="instruction">This Key isn\'t supported. Try any other key.</div>';
+        }
+
+    });
+</script>
+
+</html>

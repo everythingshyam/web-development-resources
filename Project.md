@@ -2,10 +2,28 @@
 
 ---
 
+-   Firebase
+
+-   React JS
+
+-   Tailwind CSS
+
+-   HTML & CSS
+
 ---
 
--   add Git & GitHub Notes
+-   _LinkedIn Post_
 
--   add JavaScript Notes once completed
+-   _Add Git & GitHub Notes_
+
+-   _Add JavaScript Notes once completed_
+
+-   _SimpleDrawingApp_
+
+-   _Copy the layout to all other files_
+
+-   _Make good layout for KeyPressInfo_
+
+-   **Finish javascript tutorial**
 
 ---
