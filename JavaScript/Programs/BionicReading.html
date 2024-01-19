@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            /* height: 100vh; */
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+
+        /* --------------------- */
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+            display: grid;
+            grid-template-columns: auto;
+            grid-template-rows: 1fr 5fr 1fr;
+            width: 90vw;
+            min-height: 90vh;
+            box-shadow: 1px 1px 10px gray;
+        }
+
+        .container>* {
+            border: 1px solid gray;
+            margin: 5px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container>header {
+            padding: 5px 20px;
+            justify-content: space-between;
+        }
+
+        /* --------------------- */
+
+        .mid-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mid-body>* {
+            margin: 5px;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+        }
+
+        label.bionic-toggle-label {
+            font-size: 20px;
+        }
+
+        /* The switch - the box around the slider */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        /* Hide default HTML checkbox */
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        /* The slider */
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked+.slider {
+            background-color: #2196F3;
+        }
+
+        input:focus+.slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked+.slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+
+        /* --------------------- */
+
+        .main-text-box {
+            width: 90%;
+            height: 80%;
+            font-size: 18px;
+            padding: 10px;
+            border: 1px solid gray;
+            border-radius: 10px;
+            outline: none;
+            resize: none;
+            overflow: auto;
+            justify-content: flex-start;
+        }
+
+        /* --------------------- */
+
+        .container>footer {
+            font-size: small;
+            display: grid;
+            padding: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+
+        /* --------------------- */
+
+        .link-button {
+            text-decoration: none;
+            color: black;
+            padding: 4px 8px;
+            border-radius: 5px;
+            box-shadow: 1px 1px 5px gray;
+        }
+
+        .link-button:hover {
+            background-color: black;
+            color: white;
+        }
+
+        @media screen and (min-width: 700px) {
+            .mid-body {
+                /* flex-direction: row; */
+            }
+
+            .key-param-container {
+                width: 20vw;
+            }
+
+            .footer-links {
+                flex-direction: row;
+            }
+        }
+    </style>
+    <title>Bionic Reading</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <a href="https://everythingshyam.github.io/web-development-resources/index.html" target="_blank"
+                class="link-button" title="Home Page">1</a>
+            <h1>Bionic Reading</h1>
+            <a href="https://github.com/everythingshyam/web-development-resources/blob/master/JavaScript/Programs/BionicReading.html"
+                target="_blank" class="link-button" title="View on GitHub">2</a>
+        </header>
+        <div class="mid-body">
+            <div class="controls">
+                <label for="bionic-toggle" class="bionic-toggle-label bionic-text">Bionic Reading Off</label>
+                <label class="switch">
+                    <input type="checkbox" name="bionicToggle" id="bionic-toggle">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div id="text-box" class="bionic-text main-text-box" contenteditable="true">
+                This simple text aims to showcase Bionic Reading. Toggle the switch to witness the Bionic
+                effect in action. Often, reading becomes challenging due to lengthy paragraphs, complex sentences, and
+                small font sizes. The brain struggles to establish a focal point. Bionic Reading addresses this by
+                emphasizing the initial letters of each word, offering a temporary focus for our eyes and brains. You
+                can also edit this text (only when Bionic is OFF) to see your text 'Bionicized', if that's a word.
+            </div>
+            <p class="reference">
+                Explore more about this concept in <a
+                    href="https://www.theguardian.com/commentisfree/2022/may/27/bionic-reading-adhd-speed-reader"
+                    target="_blank">The Guardian Article.</a>
+            </p>
+        </div>
+        <footer>
+            <div class="note-point">Right Click, and go to 'View Page Source' to view code, or simply press Ctrl U</div>
+            <div class="footer-links">
+                <a href="https://everythingshyam.github.io/static-personal-website/" title="Developer Portfolio"
+                    class="link-button" target="_blank">Know Developer</a>
+                <a href="https://www.github.com/everythingshyam" title="GitHub Profile" class="link-button"
+                    target="_blank">GitHub Profile</a>
+                <a href="https://www.github.com/everythingshyam/web-development-resources/" title="GitHub Repo"
+                    class="link-button" target="_blank">GitHub Repo</a>
+            </div>
+        </footer>
+    </div>
+</body>
+<script>
+    const bionicTextBoxes = document.querySelectorAll('.bionic-text');
+    const bionicToggle = document.querySelector('#bionic-toggle');
+    const bionicToggleLabel = document.querySelector('.bionic-toggle-label');
+    const mainTextBox = document.querySelector('.main-text-box');
+
+    let bionicToggleState = false;
+
+    bionicToggle.addEventListener('change', () => {
+        bionicToggleState = !bionicToggleState;
+        bionicToggleLabel.textContent = bionicToggleState ? 'Bionic Reading On' : 'Bionic Reading Off';
+
+        BionicTextToggle();
+
+        if (bionicToggleState) {
+            mainTextBox.setAttribute('contenteditable', 'false');
+        }
+        else {
+            mainTextBox.setAttribute('contenteditable', 'true');
+        }
+    });
+
+    function BionicTextToggle() {
+        bionicTextBoxes.forEach(bionicTextBox => {
+            if (bionicToggleState) {
+                let text = bionicTextBox.innerHTML;
+                text += ' ';
+                let newText = '';
+                let start = -1;
+
+                for (i = 0; i < text.length; i++) {
+                    if (isLetter(text.charAt(i))) {
+                        if (start == -1) {
+                            start = i;
+                        }
+
+                        if (!isLetter(text.charAt(i + 1))) {
+                            let word = text.substring(start, i + 1);
+                            if (word.length == 1)
+                                word = '<b>' + word + '</b>';
+                            else if (word.length < 5)
+                                word = '<b>' + word.substring(0, word.length - 1) + '</b>' + word.substring(word.length - 1);
+                            else
+                                word = '<b>' + word.substring(0, word.length - 2) + '</b>' + word.substring(word.length - 2);
+                            newText += word;
+                            start = -1;
+                            endOfOperations = i;
+                        }
+                    }
+                    else {
+                        newText += text.charAt(i);
+                    }
+                }
+                bionicTextBox.innerHTML = newText;
+            } else {//toggle bionic off
+                let text = bionicTextBox.innerHTML;
+                text += ' ';
+                let newText = '';
+                let skipMode = false;
+
+                for (i = 0; i < text.length - 1; i++) {
+                    if (text.charAt(i) == '<' && !skipMode) {
+                        skipMode = true;
+                    }
+                    else if (text.charAt(i) == '>') {
+                        skipMode = false;
+                        continue;
+                    }
+                    if (!skipMode) {
+                        newText += text.charAt(i);
+                    }
+                }
+                bionicTextBox.innerHTML = newText;
+            }
+        });
+    }
+
+    function isLetter(char) {
+        return char.match(/[a-z]/i);
+    }
+</script>
+
+</html>

@@ -12,7 +12,7 @@
 
 ---
 
--   _LinkedIn Post_
+-   ~~LinkedIn Post~~
 
 -   _Add Git & GitHub Notes_
 
