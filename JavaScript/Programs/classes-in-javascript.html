@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classes In Javascript</title>
+</head>
+<body>
+    <h1>Classes In Javascript</h1>
+    <script>
+        class Person
+        {
+            constructor(name, age)
+            {
+                this.name = name;
+                this.age = age;
+            }
+
+            print()
+            {
+                console.log(`Hello ${this.name}, you are ${this.age} years old.`);
+            }
+        }
+
+        let person = new Person('John', 25);
+        person.print();
+
+        let person2 = new Person('Jane', 22);
+        person2.print();
+
+        class Employee extends Person
+        {
+            bonus = 0;
+            constructor(name, age, salary)
+            {
+                super(name, age);
+                this.salary = salary;
+            }
+
+            print()
+            {
+                super.print();
+                console.log(`Your salary is ${this.salary}`);
+            }
+
+            set bonus(bonus)
+            {
+                this.bonus = bonus;
+            }
+
+            get bonus()
+            {
+                return this.bonus;
+            }
+        }
+        let employee = new Employee('Jack', 30, 50000);
+        employee.print();
+        employee.bonus = 1000;
+        console.log(`Your bonus is ${employee.bonus}`);
+
+        console.log(`GETTERS AND SETTERS`);
+        let attendance={
+            _list: [],
+            set addName(name)
+            {
+                this._list.push(name);
+            },
+            get list()
+            {
+                return this._list.join(', ');
+            }
+        }
+        attendance.addName = 'John';
+        attendance.addName = 'Jane';
+        console.log(attendance.list);
+    </script>
+</body>
+</html>

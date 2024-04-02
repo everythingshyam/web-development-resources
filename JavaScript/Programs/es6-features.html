@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Practice</title>
+</head>
+
+<body>
+    <h1 id="box">ES 6 Updates</h1>
+    <script>
+        /* THE LET KEYWORD */
+        // console.log('THE LET KEYWORD');
+        // var topic = "Javascript";
+        // if(topic)
+        // {
+        //     var topic = "React";
+        //     console.log('block', topic);
+        //     var box = document.getElementById('box');
+
+        //     for(let i = 0; i < 5; i++)
+        //     {
+        //         div=document.createElement('div');
+        //         div.innerHTML = 'Box ' + i;
+        //         div.onclick = function()
+        //         {
+        //             alert('This is box number ' + i);
+        //         }
+        //         box.appendChild(div);
+        //     }
+        // }
+        // console.log('global', topic);
+
+        /* THE CONST KEYWORD */
+        // console.log('THE CONST KEYWORD')
+        // const constant='constant';
+        // console.log('Before ', constant);
+        // constant='variable';
+        // console.log('After ', constant);
+
+        /* TEMPLATE STRINGS / TEMPLATE LITERALS */
+        // console.log('TEMPLATE STRINGS / TEMPLATE LITERALS');
+        // function print(name, age)
+        // {
+        //     console.log(`Hello ${name}, you are ${age} years old.`);
+        // }
+        // print('John', 25);
+
+        /* SEARCHING STRINGS */
+        // console.log('SEARCHING STRINGS');
+        // const str = 'Nun Roti Khayenge UP me bas jayenge, thik hai!';
+        // console.log(str.startsWith('Nun'));
+        // console.log(str.endsWith('thik hai!'));
+        // console.log(str.includes('UP'));
+        // console.log(str.includes('up'));
+        // console.log(str.indexOf('UP'));
+        // console.log(str.repeat(5));
+        // console.log(str.replace('UP', 'MP'));
+        // console.log(str.search('UP'));
+
+        /* SYMBOLS (Like Unique IDs) */
+        // console.log('SYMBOLS (Like Unique IDs)');
+        // const id = Symbol();
+        // const courseInfo = {
+        //     title: 'Javascript',
+        //     topics: ['ES6', 'ES7', 'ES8'],
+        //     id: 'js-course'
+        // };
+        // courseInfo[id] = 123;
+        // console.log(courseInfo);
+        // console.log(courseInfo[id]);
+        // console.log(courseInfo.id);
+
+        /* MAPS */
+        // console.log('MAPS');
+        // let course = new Map();
+        // course.set('react', {description: 'ui'});
+        // course.set('jest', {description: 'testing'});
+        // console.log(course);
+        // console.log(course.react); // gives undefined
+        // console.log(course.get('react'));   // gives {description: 'ui'}
+
+        // console.log(course.size);
+        // course.forEach((item)=>{
+        //     console.log(item);
+        // });
+
+        /* SETS */
+        // console.log('SETS');
+        // let books = new Set();
+        // books.add('Think Like A Monk');
+        // books.add('The Alchemist');
+        // books.add('You Can Win');
+        // books.add('Think Like A Monk');
+        // books.add('think like a monk');
+
+        // console.log(books);
+        // console.log(books.size);
+        // console.log(books.has('The Alchemist'));
+        // books.delete('The Alchemist');
+        // console.log(books);
+
+        // books.forEach((book)=>{
+        //     console.log(book);
+        // });
+
+        /* THE SPREAD OPERATOR */
+        // console.log('THE SPREAD OPERATOR');
+        // let cats = ['Milo', 'Meow'];
+        // let dogs = ['Dodge', 'Meow'];
+        // let animals1 = ['Whale', 'Shark', cats, dogs];
+        // let animals2 = ['Whale', 'Shark', ...cats, ...dogs];
+        // console.log(animals1);
+        // console.log(animals2);
+
+        /* DESTRUCTURING */
+        // console.log('DESTRUCTURING');
+        // let course = [
+        //     'one',
+        //     'two',
+        //     'three',
+        //     'four'
+        // ];
+        // let [title, , ...rest] = course;
+        // console.log(title);
+        // console.log(rest);
+        // // Doesn't work with objects, only arrays
+
+        /* SEARCHING ARRAYS WITH INCLUDES */
+        // console.log('SEARCHING ARRAYS WITH INCLUDES');
+        // let courses = ['one', 'two', 'three', 'four'];
+        // console.log(courses.includes('two'));
+        // console.log(courses.includes('five'));
+        // console.log(courses.includes('Two'));
+
+        /* ENHANCING OBJECT LITERALS */
+        console.log('ENHANCING OBJECT LITERALS');
+        function getID(name, age) {
+            return {
+                name,   // equivalent to name: name,
+                age,   // equivalent to age: age,
+                id: `${name}(${age})`
+            };
+        }
+
+        /* DESTUCTURING TO THE NEXT LEVEL */
+        // const Student = {
+        //     name: 'John',
+        //     age: 25,
+        //     scores: {
+        //         maths: 74,
+        //         english: 63
+        //     }
+        // };
+        // function getStudentInfo( { name, age} ) {
+        //     console.log(`${name} is ${age} years old.`);
+        // }
+        // getStudentInfo(Student);
+
+        /* FOR/OF LOOP */
+        // console.log('FOR/OF LOOP');
+        // let topics = ['one', 'two', 'three', 'four'];
+        // for(let topic of topics)
+        // {
+        //     console.log(topic);
+        // }
+    </script>
+</body>
+
+</html>
